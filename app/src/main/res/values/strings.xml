@@ -3,4 +3,5 @@
     <string name="title_budgets">Budgets</string>
     <string name="title_transactions">Transactions</string>
     <string name="title_goals">Goals</string>
+    <string name="budget_button">New Budget</string>
 </resources>
