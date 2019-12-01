@@ -1,14 +1,20 @@
 package com.example.myfinancepal.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myfinancepal.R
+import kotlinx.android.synthetic.main.fragment_budgets.budget_button
+import kotlinx.android.synthetic.main.fragment_budgets.view.*
 
 class HomeFragment : Fragment() {
 
@@ -26,6 +32,9 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(this, Observer {
             textView.text = it
         })*/
+        root.budget_button.setOnClickListener {
+            d("buttonSetup", "Button Pressed")
+        }
         return root
     }
 }

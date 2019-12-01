@@ -4,4 +4,6 @@
     <string name="title_transactions">Transactions</string>
     <string name="title_goals">Goals</string>
     <string name="budget_button">New Budget</string>
+    <string name="transaction_button">New Transaction</string>
+    <string name="goal_button">New Goal</string>
 </resources>

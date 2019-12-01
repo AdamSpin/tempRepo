@@ -1,12 +1,14 @@
 package com.example.myfinancepal
 
 import android.os.Bundle
+import android.util.Log.d
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import kotlinx.android.synthetic.main.fragment_budgets.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +27,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        /*budget_button.setOnClickListener {
+            d("Adam", "budget button pressed")
+        }*/
     }
 }
