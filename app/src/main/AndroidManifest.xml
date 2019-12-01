@@ -26,6 +26,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.home.CreateTransactionFragment"
+            android:label="Create New Transaction" >
+            <intent-filter>
+                <action android:name=".ui.home.CreateTransactionFragment" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.CreateGoalFragment"
+            android:label="Create New Goal" >
+            <intent-filter>
+                <action android:name=".ui.home.CreateGoalFragment" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.example.myfinancepal.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,10 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myfinancepal.R
+import com.example.myfinancepal.ui.home.CreateBudgetFragment
+import com.example.myfinancepal.ui.home.CreateTransactionFragment
+import kotlinx.android.synthetic.main.fragment_budgets.view.*
+import kotlinx.android.synthetic.main.fragment_transactions.view.*
 
 class DashboardFragment : Fragment() {
 
@@ -29,6 +35,12 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(this, Observer {
             textView.text = it
         })*/
+        root.transaction_button.setOnClickListener {
+            Log.d("Adam", "Transaction Button pressed")
+            val intent = Intent(activity, CreateTransactionFragment::class.java)
+            requireContext().startActivity(intent)
+        }
+
         return root
     }
 }

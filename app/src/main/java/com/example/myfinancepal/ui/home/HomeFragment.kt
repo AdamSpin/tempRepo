@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             textView.text = it
         })*/
         root.budget_button.setOnClickListener {
-            d("Adam", "Button pressed")
+            d("Adam", "Budget Button pressed")
             val intent = Intent(activity, CreateBudgetFragment::class.java)
             requireContext().startActivity(intent)
         }
