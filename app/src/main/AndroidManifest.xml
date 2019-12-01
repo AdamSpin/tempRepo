@@ -18,6 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.home.CreateBudgetFragment"
+            android:label="Create New Budget" >
+            <intent-filter>
+                <action android:name=".ui.home.CreateBudgetFragment" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

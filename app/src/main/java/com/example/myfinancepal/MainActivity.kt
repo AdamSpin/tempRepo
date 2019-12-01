@@ -28,8 +28,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        /*budget_button.setOnClickListener {
-            d("Adam", "budget button pressed")
-        }*/
     }
 }
