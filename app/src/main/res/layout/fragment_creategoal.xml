@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World"
-        android:textSize="80sp"/>
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/field_goal_name"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100sp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/goal_name" />
+
+    <EditText
+        android:id="@+id/field_goal_amt"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/field_goal_name"
+        android:layout_marginTop="30sp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/goal_amt"/>
+
+    <Button
+        android:id="@+id/confirm_budget"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/field_goal_amt"
+        android:layout_marginTop="50sp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#FFFFFF"
+        android:text="@string/confirm" />
+</RelativeLayout>
