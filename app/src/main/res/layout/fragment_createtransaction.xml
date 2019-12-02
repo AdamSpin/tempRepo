@@ -30,7 +30,7 @@
         android:hint="@string/transaction_amt"/>
 
     <Button
-        android:id="@+id/confirm_budget"
+        android:id="@+id/confirm_transaction"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
