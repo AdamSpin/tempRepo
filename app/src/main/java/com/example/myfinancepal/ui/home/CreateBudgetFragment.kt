@@ -39,6 +39,15 @@ class CreateBudgetFragment : AppCompatActivity() {
         createBudgetLayout.addView(tv_dynamic)
 
         confirm_budget.setOnClickListener {
+
+            //Error Checks don't work yet
+            if((field_budget_name.text).isEmpty()){
+                Toast.makeText(this, "Budget must have a name", Toast.LENGTH_SHORT).show()
+            }
+            else if((field_budget_name.text).toString() == "An already existing budget name"){
+                Toast.makeText(this, "Budget already exists", Toast.LENGTH_SHORT).show()
+            }
+
             val budNew = JSONObject()
             val budArray = JSONArray()
             budNew.put("name", field_budget_name.text)
