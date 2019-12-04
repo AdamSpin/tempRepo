@@ -22,13 +22,6 @@ class CreateBudgetFragment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(fragment_createbudget)
 
-        //Check if file exists. If not, fill it with an empty JSONArray
-        var checkFile = File("budgetFile")
-        if(!checkFile.exists()){
-            val tempDelete : FileOutputStream = openFileOutput("budgetFile", Context.MODE_PRIVATE)
-            tempDelete.write("[]".toByteArray())
-        }
-
         //Read the file and create a JSONArray object from its contents
         var fileInputStream: FileInputStream = openFileInput("budgetFile")
         var inputStreamReader: InputStreamReader = InputStreamReader(fileInputStream)
