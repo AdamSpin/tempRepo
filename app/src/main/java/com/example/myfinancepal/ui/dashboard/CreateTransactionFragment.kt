@@ -10,9 +10,8 @@ import androidx.core.view.marginTop
 import com.example.myfinancepal.MainActivity
 import com.example.myfinancepal.R
 import com.example.myfinancepal.R.layout.fragment_createtransaction
-import kotlinx.android.synthetic.main.fragment_createbudget.*
-import kotlinx.android.synthetic.main.fragment_createbudget.view.*
 import kotlinx.android.synthetic.main.fragment_createtransaction.*
+import kotlinx.android.synthetic.main.fragment_createtransaction.view.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.*
