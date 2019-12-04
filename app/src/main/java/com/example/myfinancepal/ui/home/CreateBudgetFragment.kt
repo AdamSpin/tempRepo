@@ -14,10 +14,7 @@ import kotlinx.android.synthetic.main.fragment_createbudget.*
 import kotlinx.android.synthetic.main.fragment_createbudget.view.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.InputStreamReader
+import java.io.*
 
 class CreateBudgetFragment : AppCompatActivity() {
 
@@ -25,6 +22,14 @@ class CreateBudgetFragment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(fragment_createbudget)
 
+        //Check if file exists. If not, fill it with an empty JSONArray
+        var checkFile = File("budgetFile")
+        if(!checkFile.exists()){
+            val tempDelete : FileOutputStream = openFileOutput("budgetFile", Context.MODE_PRIVATE)
+            tempDelete.write("[]".toByteArray())
+        }
+
+        //Read the file and create a JSONArray object from its contents
         var fileInputStream: FileInputStream = openFileInput("budgetFile")
         var inputStreamReader: InputStreamReader = InputStreamReader(fileInputStream)
         val bufferedReader: BufferedReader = BufferedReader(inputStreamReader)
@@ -33,36 +38,55 @@ class CreateBudgetFragment : AppCompatActivity() {
         while({text = bufferedReader.readLine(); text}() != null){
             stringBuilder.append(text)
         }
-        val tv_dynamic = TextView(this)
-        tv_dynamic.textSize = 20f
-        tv_dynamic.text = stringBuilder.toString()
-        createBudgetLayout.addView(tv_dynamic)
+        var array = stringBuilder.toString()
+        var budArray: JSONArray = JSONArray(array)
 
+        //When confirm_budget button is clicked, error check and create new budget
         confirm_budget.setOnClickListener {
+            var nameIsGood = true
+            var inputBudgetName = field_budget_name.text.toString().trim()
+            var inputBudgetAmt = field_budget_amt.text.toString().trim()
 
-            //Error Checks don't work yet
-            if((field_budget_name.text).isEmpty()){
+            //Check if user entered a budget name
+            if(inputBudgetName.isEmpty()){
                 Toast.makeText(this, "Budget must have a name", Toast.LENGTH_SHORT).show()
             }
-            else if((field_budget_name.text).toString() == "An already existing budget name"){
-                Toast.makeText(this, "Budget already exists", Toast.LENGTH_SHORT).show()
+            else{
+                //Check if user entered a budget name that was not already taken
+                for(i in 0 until budArray.length()){
+                    val bud = budArray.getJSONObject(i)
+                    if(bud["name"] == inputBudgetName){
+                        nameIsGood = false
+                    }
+                }
+                if(!nameIsGood){
+                    Toast.makeText(this, "Budget already exists", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    if(inputBudgetAmt.isEmpty()){
+                        Toast.makeText(this, "Budget must have an amount", Toast.LENGTH_SHORT).show()
+                    }
+                    else if(inputBudgetAmt.toFloat() < 0 || inputBudgetAmt.toFloat() > 100000){
+                        Toast.makeText(this, "Budget amount out of range", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        val budNew = JSONObject()
+                        budNew.put("name", field_budget_name.text)
+                        budNew.put("amount", field_budget_amt.text)
+                        budNew.put("current", 0)
+                        budArray.put(budNew)
+                        val budString = budArray.toString()
+
+                        //ITERATE THROUGH JSONARRAY with array.getJSONObject(i)
+
+                        val fileOutputStream : FileOutputStream = openFileOutput("budgetFile", Context.MODE_PRIVATE)
+                        fileOutputStream.write(budString.toByteArray())
+                        Toast.makeText(this, "Budget Created", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
             }
-
-            val budNew = JSONObject()
-            val budArray = JSONArray()
-            budNew.put("name", field_budget_name.text)
-            budNew.put("amount", field_budget_amt.text)
-            budNew.put("current", 0)
-            budArray.put(budNew)
-            val budString = budArray.toString()
-
-            //ITERATE THROUGH JSONARRAY with array.getJSONObject(i)
-
-            val fileOutputStream : FileOutputStream = openFileOutput("budgetFile", Context.MODE_PRIVATE)
-            fileOutputStream.write(budString.toByteArray())
-            Toast.makeText(this, "Budget Created", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
     }
 }
