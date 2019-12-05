@@ -64,7 +64,7 @@ class NotificationsFragment : Fragment() {
         for(i in 0 until goalArray.length()){
             val bud = goalArray.getJSONObject(i)
             var item = TextView(activity)
-            val itemNameVal = bud["name"].toString() + ":"
+            val itemNameVal = bud["name"].toString() + ":  $" + bud["value"].toString()
             item.text = itemNameVal
             item.id = i + 783
             item.textSize = 25f
