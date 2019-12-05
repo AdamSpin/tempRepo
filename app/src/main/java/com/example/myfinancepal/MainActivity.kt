@@ -1,7 +1,10 @@
 package com.example.myfinancepal
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log.d
+import android.widget.RelativeLayout
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,6 +12,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.fragment_budgets.*
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +33,5 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
     }
 }
