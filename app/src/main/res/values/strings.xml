@@ -13,4 +13,7 @@
     <string name="transaction_amt">Transaction Amount</string>
     <string name="goal_amt">Goal Amount</string>
     <string name="confirm">Confirm</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="deposit">Deposit</string>
+    <string name="transBudget">Budget</string>
 </resources>

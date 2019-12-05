@@ -29,13 +29,37 @@
         android:textColor="@color/colorPrimaryDark"
         android:hint="@string/transaction_amt"/>
 
+    <EditText
+        android:id="@+id/field_trans_budget"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/field_transaction_amt"
+        android:layout_marginTop="30sp"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/transBudget"/>
+
+    <Switch
+        android:id="@+id/depositOrWithdrawal"
+        android:layout_width="225sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/field_trans_budget"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:switchMinWidth="225sp"
+        android:textOff="@string/withdraw"
+        android:textOn="@string/deposit"
+        android:showText="true" />
+
     <Button
         android:id="@+id/confirm_transaction"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/field_transaction_amt"
+        android:layout_below="@+id/depositOrWithdrawal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="70sp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/confirm"
         android:textColor="#FFFFFF" />
