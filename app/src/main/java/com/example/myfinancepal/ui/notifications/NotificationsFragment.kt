@@ -80,23 +80,23 @@ class NotificationsFragment : Fragment() {
             lastId = i + 783
         }
 
-        root.button_goal_Clear.setOnClickListener {
-            var fileOutputStream : FileOutputStream = requireActivity().applicationContext.openFileOutput("goalFile2", Context.MODE_PRIVATE)
-            fileOutputStream.write("[]".toByteArray())
-        }
-
-        root.test_goal_button.setOnClickListener {
-            var ffileInputStream: FileInputStream? = null
-            ffileInputStream = requireActivity().applicationContext.openFileInput("goalFile2")
-            var iinputStreamReader: InputStreamReader = InputStreamReader(ffileInputStream)
-            val bbufferedReader: BufferedReader = BufferedReader(iinputStreamReader)
-            val sstringBuilder: StringBuilder = StringBuilder()
-            var ttext: String? = null
-            while ({ ttext = bbufferedReader.readLine(); ttext }() != null) {
-                sstringBuilder.append(ttext)
-            }
-            Log.d("Adam", sstringBuilder.toString())
-        }
+//        root.button_goal_Clear.setOnClickListener {
+//            var fileOutputStream : FileOutputStream = requireActivity().applicationContext.openFileOutput("goalFile2", Context.MODE_PRIVATE)
+//            fileOutputStream.write("[]".toByteArray())
+//        }
+//
+//        root.test_goal_button.setOnClickListener {
+//            var ffileInputStream: FileInputStream? = null
+//            ffileInputStream = requireActivity().applicationContext.openFileInput("goalFile2")
+//            var iinputStreamReader: InputStreamReader = InputStreamReader(ffileInputStream)
+//            val bbufferedReader: BufferedReader = BufferedReader(iinputStreamReader)
+//            val sstringBuilder: StringBuilder = StringBuilder()
+//            var ttext: String? = null
+//            while ({ ttext = bbufferedReader.readLine(); ttext }() != null) {
+//                sstringBuilder.append(ttext)
+//            }
+//            Log.d("Adam", sstringBuilder.toString())
+//        }
 
 
         root.goal_button.setOnClickListener {

@@ -81,23 +81,23 @@ class DashboardFragment : Fragment() {
             lastId = i + 547
         }
 
-        root.button_trans_Clear.setOnClickListener {
-            var fileOutputStream : FileOutputStream = requireActivity().applicationContext.openFileOutput("transactionFile2", Context.MODE_PRIVATE)
-            fileOutputStream.write("[]".toByteArray())
-        }
-
-        root.test_trans_button.setOnClickListener {
-            var testInputStream: FileInputStream? = null
-            testInputStream = requireActivity().applicationContext.openFileInput("transactionFile2")
-            var testStreamReader: InputStreamReader = InputStreamReader(testInputStream)
-            val testReader: BufferedReader = BufferedReader(testStreamReader)
-            val testBuilder: StringBuilder = StringBuilder()
-            var temp: String? = null
-            while ({ temp = testReader.readLine(); temp }() != null) {
-                testBuilder.append(temp)
-            }
-            Log.d("Adam", testBuilder.toString())
-        }
+//        root.button_trans_Clear.setOnClickListener {
+//            var fileOutputStream : FileOutputStream = requireActivity().applicationContext.openFileOutput("transactionFile2", Context.MODE_PRIVATE)
+//            fileOutputStream.write("[]".toByteArray())
+//        }
+//
+//        root.test_trans_button.setOnClickListener {
+//            var testInputStream: FileInputStream? = null
+//            testInputStream = requireActivity().applicationContext.openFileInput("transactionFile2")
+//            var testStreamReader: InputStreamReader = InputStreamReader(testInputStream)
+//            val testReader: BufferedReader = BufferedReader(testStreamReader)
+//            val testBuilder: StringBuilder = StringBuilder()
+//            var temp: String? = null
+//            while ({ temp = testReader.readLine(); temp }() != null) {
+//                testBuilder.append(temp)
+//            }
+//            Log.d("Adam", testBuilder.toString())
+//        }
 
         root.transaction_button.setOnClickListener {
             val intent = Intent(activity, CreateTransactionFragment::class.java)
