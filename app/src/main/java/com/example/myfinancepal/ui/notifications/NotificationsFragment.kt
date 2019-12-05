@@ -66,7 +66,7 @@ class NotificationsFragment : Fragment() {
             var item = TextView(activity)
             val itemNameVal = bud["name"].toString() + ":"
             item.text = itemNameVal
-            item.id = i
+            item.id = i + 783
             item.textSize = 25f
             item.setPadding(15,0,0,0)
             item.setTextColor(Color.rgb(0,51,76))
@@ -77,7 +77,7 @@ class NotificationsFragment : Fragment() {
             params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
             item.layoutParams = params1
             root.goalLayout.addView(item)
-            lastId = i
+            lastId = i + 783
         }
 
         root.button_goal_Clear.setOnClickListener {

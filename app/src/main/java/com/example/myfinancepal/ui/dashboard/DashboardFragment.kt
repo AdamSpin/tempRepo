@@ -65,9 +65,9 @@ class DashboardFragment : Fragment() {
         for(i in 0 until transArray.length()){
             val bud = transArray.getJSONObject(i)
             var item = TextView(activity)
-            val itemNameVal = bud["name"].toString() + ":   $" + bud["amount"].toString()
+            val itemNameVal = bud["name"].toString() + ":  $" + bud["amount"].toString()
             item.text = itemNameVal
-            item.id = i
+            item.id = i + 547
             item.textSize = 25f
             item.setPadding(15,0,0,0)
             item.setTextColor(Color.rgb(0,51,76))
@@ -78,7 +78,7 @@ class DashboardFragment : Fragment() {
             params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
             item.layoutParams = params1
             root.transLayout.addView(item)
-            lastId = i
+            lastId = i + 547
         }
 
         root.button_trans_Clear.setOnClickListener {

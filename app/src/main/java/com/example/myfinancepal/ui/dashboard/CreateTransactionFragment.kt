@@ -96,11 +96,48 @@ class CreateTransactionFragment : AppCompatActivity() {
 
                     val fileOutputStream : FileOutputStream = applicationContext.openFileOutput("transactionFile2", Context.MODE_PRIVATE)
                     fileOutputStream.write(transString.toByteArray())
+                    updateBudget(inputTransactionBud, inputTransactionAmt, inOrOut)
                     Toast.makeText(this, "Transaction Created", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
             }
         }
+    }
+
+    private fun updateBudget(budgetName: String, amount: String, deposit: String){
+        var checkBudgetFile = applicationContext.getFileStreamPath("budgetFile2")
+        if(checkBudgetFile == null || !checkBudgetFile.exists()){
+            var fileOutputStream : FileOutputStream = applicationContext.openFileOutput("budgetFile2", Context.MODE_PRIVATE)
+            fileOutputStream.write("[]".toByteArray())
+        }
+        var budgetInputStream: FileInputStream? = null
+        budgetInputStream = applicationContext.openFileInput("budgetFile2")
+        var budgetStreamReader: InputStreamReader = InputStreamReader(budgetInputStream)
+        val budgetReader: BufferedReader = BufferedReader(budgetStreamReader)
+        val budgetBuilder: StringBuilder = StringBuilder()
+        var temp: String? = null
+        while ({ temp = budgetReader.readLine(); temp }() != null) {
+            budgetBuilder.append(temp)
+        }
+        var budgetString = budgetBuilder.toString()
+        var budgetArray = JSONArray(budgetString)
+
+        for(i in 0 until budgetArray.length()){
+            var bud = budgetArray.getJSONObject(i)
+            if(bud["name"].toString() == budgetName){
+                if(deposit == "false"){
+                    var newBudAmount = bud["amount"].toString().toFloat() - amount.toFloat()
+                    bud.put("amount", newBudAmount)
+                }
+                else{
+                    var newBudAmount = bud["amount"].toString().toFloat() + amount.toFloat()
+                    bud.put("amount", newBudAmount)
+                }
+            }
+        }
+        val budArrStr = budgetArray.toString()
+        val fileOutputStream : FileOutputStream = applicationContext.openFileOutput("budgetFile2", Context.MODE_PRIVATE)
+        fileOutputStream.write(budArrStr.toByteArray())
     }
 }

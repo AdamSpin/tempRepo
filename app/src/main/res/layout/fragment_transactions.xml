@@ -10,6 +10,7 @@
         android:id="@+id/transaction_button"
         android:layout_width="250sp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50sp"
         android:layout_centerHorizontal="true"
         android:text="@string/transaction_button"
         android:textAllCaps="false"

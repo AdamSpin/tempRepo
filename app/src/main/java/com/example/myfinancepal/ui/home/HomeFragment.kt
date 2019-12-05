@@ -56,9 +56,9 @@ class HomeFragment : Fragment() {
         for(i in 0 until budgetArray.length()){
             val bud = budgetArray.getJSONObject(i)
             var item = TextView(activity)
-            val itemNameVal = bud["name"].toString() + ":"   //$" + bud["value"].toString()
-            item.text = itemNameVal
-            item.id = i
+            val thisString = bud["name"].toString() + ":  $" + bud["amount"].toString()
+            item.text = thisString
+            item.id = i + 354
             item.textSize = 25f
             item.setPadding(15,0,0,0)
             item.setTextColor(Color.rgb(0,51,76))
@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
             params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
             item.layoutParams = params1
             root.budgetLayout.addView(item)
-            lastId = i
+            lastId = i + 354
         }
 
         root.button_bud_Clear.setOnClickListener {

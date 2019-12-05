@@ -69,8 +69,9 @@ class CreateBudgetFragment : AppCompatActivity() {
                             .show()
                     } else {
                         var item = JSONObject()
+                        val sedro = 0
                         item.put("name", itemName)
-                        item.put("value", itemAmt)
+                        item.put("amount", itemAmt)
                         budgetArray.put(item)
 
                         var fileOutputStream: FileOutputStream =
