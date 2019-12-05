@@ -65,7 +65,7 @@ class DashboardFragment : Fragment() {
         for(i in 0 until transArray.length()){
             val bud = transArray.getJSONObject(i)
             var item = TextView(activity)
-            val itemNameVal = bud["name"].toString() + ":"
+            val itemNameVal = bud["name"].toString() + ":   $" + bud["amount"].toString()
             item.text = itemNameVal
             item.id = i
             item.textSize = 25f

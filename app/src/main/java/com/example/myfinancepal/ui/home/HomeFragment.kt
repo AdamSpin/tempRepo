@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
         for(i in 0 until budgetArray.length()){
             val bud = budgetArray.getJSONObject(i)
             var item = TextView(activity)
-            val itemNameVal = bud["name"].toString() + ":"
+            val itemNameVal = bud["name"].toString() + ":"   //$" + bud["value"].toString()
             item.text = itemNameVal
             item.id = i
             item.textSize = 25f
