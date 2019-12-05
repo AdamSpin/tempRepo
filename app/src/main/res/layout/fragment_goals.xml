@@ -3,18 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/goalLayout">
 
     <Button
-        android:id="@+id/goal_button"
-        android:layout_width="250sp"
+    android:id="@+id/goal_button"
+    android:layout_width="250sp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="@string/goal_button"
+    android:textAllCaps="false"
+    android:background="@color/colorPrimaryDark"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/test_goal_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/goal_button"
-        android:textAllCaps="false"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:text="TEST" />
+
+    <Button
+        android:id="@+id/button_goal_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/test_goal_button"
+        android:layout_marginTop="87dp"
+        android:text="CLEAR" />
+
 </RelativeLayout>
